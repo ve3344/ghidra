@@ -1,0 +1,20 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Down
+      run: wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_11.2.1_build/ghidra_11.2.1_PUBLIC_20241105.zip
+    - uses: LarchLiu/actions-save-files@v1.0.3
+      with:
+        github_token: ${{ github.token }}
+        publish_dir: ./
